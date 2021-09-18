@@ -1,8 +1,17 @@
+<div class="container">
 <h1>My tasks:</h1>
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.title, task_path(task) %></li>
-  <% end %>
-</ul>
+<div class="list-group">
+    <% @tasks.each do |task| %>
+  <a href=<%=task_path(task)%>% class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><%= task.title %></h5>
+    </div>
+    <p class="mb-1"><%= task.details %></p>
+    <% end %>
+    </a>
+  </div>
+<%= link_to "Add new task", new_task_path, class:"btn btn-primary" %>
+</div>
 
-<%= link_to "Add new task", new_task_path %>
+
+
